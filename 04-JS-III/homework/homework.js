@@ -30,7 +30,11 @@ function incrementarPorUno(array) {
   // y devuelve el array
   // Tu código:
 
-  retur array.length + 1; 
+  for (let i = 0; i < array.length; i++) {
+    
+    array[i] = array[i] +1
+  };
+  return array;
 }
 
 
