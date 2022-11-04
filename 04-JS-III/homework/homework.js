@@ -131,7 +131,7 @@ function multiplicarArgumentos() {
   // Escribe tu código aquí:
 
   var acumulador = 1;
-  if (arguments.length === 0){
+  if (arguments.length === 0){ //el tamaño del argumento que pasen es exactamente = a 0
     return 0;
   }
   else if( arguments.length === 1){
@@ -149,7 +149,14 @@ function multiplicarArgumentos() {
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
+  let suma = 0;
 
+  for(var i = 0; i < arreglo.length; i++){
+    if (arreglo[i]>18){
+      suma = suma +1
+    }
+  }
+return suma;
 }
 
 
@@ -159,6 +166,11 @@ function diaDeLaSemana(numeroDeDia) {
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
   
+  if (numeroDeDia === 1 || numeroDeDia === 7){
+    return 'Es fin de semana'
+  }
+    return 'Es dia Laboral'
+  
 } 
 
 
@@ -166,7 +178,22 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  
+  //1ro crear una variable y la convertimos en string con el metodo tostring para poder acceder a ella y ver el indice
+  //var num = n.toString() 
+  //if (num.[0] === '9'){
+    //return true;
+  //}
+  //else{
+    //return false; 
+  //}
+
+  var num = n.toString() 
+  if (num.charAt() === '9'){
+    return true;
+  }
+  else{
+    return false; 
+  }
 }
 
 
@@ -174,7 +201,16 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  
+  //[1,1,1,1,1]
+  //[1,1,1,2,1]
+  for (i = 0; i < arreglo.length-1; i++){ //1.-bucle para recorrer el arreglo //el -1 es para quye compare hasta el penultimoindice
+    if (arreglo[i] !== arreglo[i+1]){//si mi arreglo en mi posicion i no es igual a mi arreglo en la posicion siguiente
+      return false
+    }
+   }
+   return true
+
+
 } 
 
 
@@ -183,6 +219,18 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  //["Marzo", "Diciembre", "Abril", "Junio", "Julio", "Noviembre", "Enero", "Mayo", "Febrero"]
+ //     0          1         2         3        4          5          6        7        8 ----> indice
+  var nuevoArray=[]
+  for (i=0; i <array.length; i++){//recorro comienza desde la pocision 0, tiene que ser menor al tamaño de ma rreglo y tiene que incrementar
+    if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre"){ //si se cumple esto lo guarda en mi nuevoArray
+      nuevoArray.push(array[i])
+    }
+  }
+  if (nuevoArray.length < 3){ // verifico si los 3 meses que me pidieron estan
+    return "No se encontraron los meses pedidos"
+  }
+  return nuevoArray
 }
 
 
@@ -190,6 +238,16 @@ function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
+  //var integers = [100, 4, 56, 78, 200, 120, 7, 160, 148, 22]
+
+  var arrayNuevo= []
+  for (i = 0; i < array.length; i++){
+     if (array[i] > 100){
+      arrayNuevo.push(array[i])
+     }
+  }
+  return arrayNuevo
+  
 }
 
 
@@ -201,6 +259,18 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+
+  var nuevoArray=[];
+  var suma = numero; // generouna variable para guardar mi numero en esa variable
+  for (i = 0; i < 10; i++){// el 10 significa el numero de veces que va a funcikonar el bucle
+    suma = suma + 2
+    if (suma === i) break //interrupcion si coincide el valor de la suma y la iteracion 
+    else nuevoArray.push(suma)
+  }
+  if (i < 10){
+    return "Se interrumpió la ejecución"
+  }
+  else return nuevoArray;
 }
 
 
@@ -211,6 +281,14 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var nuevoArray= [];
+  var suma = numero;
+  for(var i = 0; i < 10; i++){
+    if(i === 5) continue
+    suma = suma +2
+    nuevoArray.push(suma);
+  }
+  return nuevoArray;
 }
 
 
